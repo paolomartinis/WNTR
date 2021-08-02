@@ -95,13 +95,13 @@ class EpanetSimulator(WaterNetworkSimulator):
         """
         if isinstance(version, str):
             version = float(version)
-        inpfile = file_prefix + '.inp'
+        inpfile = 'temp/' + file_prefix + '.inp'
         self._wn.write_inpfile(inpfile, units=self._wn.options.hydraulic.inpfile_units, version=version)
         enData = wntr.epanet.toolkit.ENepanet(version=version)
-        rptfile = file_prefix + '.rpt'
-        outfile = file_prefix + '.bin'
+        rptfile = 'temp/' + file_prefix + '.rpt'
+        outfile = 'temp/' + file_prefix + '.bin'
         if hydfile is None:
-            hydfile = file_prefix + '.hyd'
+            hydfile = 'temp/' + file_prefix + '.hyd'
         enData.ENopen(inpfile, rptfile, outfile)
         if use_hyd:
             enData.ENusehydfile(hydfile)
