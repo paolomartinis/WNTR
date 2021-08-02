@@ -72,8 +72,8 @@ def runepanet(inpfile):
     """
     file_prefix, file_ext = os.path.splitext(inpfile)
     enData = ENepanet()
-    rptfile = file_prefix + '.rpt'
-    outfile = file_prefix + '.bin'
+    rptfile = 'temp/' + file_prefix + '.rpt'
+    outfile = 'temp/' + file_prefix + '.bin'
     enData.ENopen(inpfile, rptfile, outfile)
     enData.ENsolveH()
     #enData.ENsaveH()
